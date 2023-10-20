@@ -1,0 +1,17 @@
+.telephoneContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 380px;
+  background-color: #86d3f4;
+  padding: 40px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
+}

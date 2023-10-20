@@ -1,13 +1,19 @@
 .wrapper {
   position: absolute;
-  top: 208px;
+  top: 1000px;
   right: 0px;
+  visibility: hidden;
   background: url("../../assets/images/banner.png");
   width: 251px;
   height: 357px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+.show {
+  visibility: visible;
+  top: 208px;
+  right: 0px;
 }
 .button {
   width: 156px;
