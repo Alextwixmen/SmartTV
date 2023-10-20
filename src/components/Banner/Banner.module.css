@@ -1,0 +1,21 @@
+.wrapper {
+  position: absolute;
+  top: 208px;
+  right: 0px;
+  background: url("../../assets/images/banner.png");
+  width: 251px;
+  height: 357px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.button {
+  width: 156px;
+  height: 52px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-bottom: 10px;
+}
