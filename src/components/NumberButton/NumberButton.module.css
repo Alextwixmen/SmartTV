@@ -1,0 +1,24 @@
+.numberButton {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+  border-radius: 0;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 88px;
+  height: 52px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  outline: 0;
+}
+.numberButton:focus {
+  background-color: white;
+}
+.numberButton:hover {
+  border-color: white;
+}
+.textBtn {
+  flex-grow: 1;
+}

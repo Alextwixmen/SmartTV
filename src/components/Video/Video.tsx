@@ -10,7 +10,6 @@ export function Video({ setShown }: IVideoPros) {
   const ref = useRef<HTMLVideoElement>(null);
 
   const checkTheTime = (e) => {
-    console.log(Math.floor(e.target.currentTime));
     if (Math.floor(e.target.currentTime) === 5) {
       setShown(true);
       e.target.removeEventListener("timeupdate", checkTheTime);

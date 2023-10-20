@@ -9,9 +9,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .title {
   font-size: 26px;
   font-weight: 400;
   text-align: center;
+  color: black;
+}
+.buttonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 284px;
+  margin-bottom: 33px;
+}
+.agreementContainer {
+  width: 284px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
 }

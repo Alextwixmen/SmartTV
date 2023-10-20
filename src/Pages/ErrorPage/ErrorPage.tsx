@@ -1,3 +1,4 @@
+import ErrorScreen from "../../assets/images/ErrorScreen.jpg";
 export function ErrorPage() {
-  return <div>ОШИБКА</div>;
+  return <img src={ErrorScreen}></img>;
 }
