@@ -1,11 +1,6 @@
-import { useState } from "react";
-import styles from "./App.module.css";
+import Routing from "./routing/routing";
 function App() {
-  return (
-    <>
-      <div className={styles.test}>Hello World</div>
-    </>
-  );
+  return <Routing />;
 }
 
 export default App;
