@@ -9,6 +9,7 @@ import { NumberField } from "../NumberField/NumberField";
 import styles from "./MobileKeyBoard.module.css";
 import { ConFirmButton } from "../ConfirmButton/ConfirmButton";
 import { InCorrectNumber } from "../InCorrectNumber/InCorrectNumber";
+import { useNavigate } from "react-router";
 export interface IMobileKeyBoardProps extends INumberEntryZoneProps {
   testIndex: number;
   setIndex: Dispatch<SetStateAction<number>>;
@@ -23,16 +24,28 @@ export function MobileKeyBoard({
   const ref = useRef<HTMLDivElement>(null);
   const [isChecked, setCheked] = useState(false);
   const [isValidNumber, setIsValidNumber] = useState<boolean | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isValidNumber === true) {
+      navigate("/final");
+    }
+  }, [isValidNumber]);
+
   useEffect(() => {
     if (ref.current !== null) {
       makeFocus(testIndex);
     }
   }, []);
+
   return (
     <div className={styles.mobileContainer}>
       <h1 className={styles.title}>Введите ваш номер мобильного телефона</h1>
       <div className={styles.numberFieldContainer}>
-        <NumberField phoneNumbers={phoneNumbers} />
+        <NumberField
+          phoneNumbers={phoneNumbers}
+          isValidNumber={isValidNumber}
+        />
       </div>
       <h2 className={styles.consultationText}>
         и с Вами свяжется наш менеждер для дальнейшей консультации
@@ -46,6 +59,7 @@ export function MobileKeyBoard({
             testIndex={testIndex}
             setIndex={setIndex}
             setPhoneNumber={setPhoneNumber}
+            setIsValidNumber={setIsValidNumber}
           />
         ))}
       </div>
@@ -68,7 +82,6 @@ export function MobileKeyBoard({
         testIndex={testIndex}
         isChecked={isChecked}
         onKeyDownHandler={onKeyDownHandler}
-        isValidNumber={isValidNumber}
         setIsValidNumber={setIsValidNumber}
       />
     </div>

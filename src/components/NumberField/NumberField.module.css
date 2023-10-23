@@ -3,3 +3,6 @@
   font-size: 32px;
   color: black;
 }
+.invalidNumber {
+  color: red;
+}

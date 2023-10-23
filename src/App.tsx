@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
 import "./App.css";
 import Routes from "./routing/routing";
+
 function App() {
   return <Routes />;
 }

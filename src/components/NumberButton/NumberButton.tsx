@@ -11,6 +11,7 @@ interface INumberButtonProps
   index: number;
   testIndex: number;
   setIndex: Dispatch<SetStateAction<number>>;
+  setIsValidNumber: Dispatch<SetStateAction<boolean | null>>;
 }
 
 export function NumberButton({
@@ -19,6 +20,7 @@ export function NumberButton({
   testIndex,
   setIndex,
   setPhoneNumber,
+  setIsValidNumber,
 }: INumberButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
 
@@ -30,7 +32,10 @@ export function NumberButton({
 
   const onClickHandler = (event: MouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLButtonElement;
-
+    // сбрасываем невалидность номера, если пользователь начинает стирать прошлый номер
+    if (target.id === "10") {
+      setIsValidNumber(null);
+    }
     setIndex(Number(target.id));
     makeFocus(Number(target.id));
     if (Number(target.id) === 10) {

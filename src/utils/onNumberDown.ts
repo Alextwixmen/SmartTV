@@ -2,6 +2,7 @@ import { Dispatch, KeyboardEvent, SetStateAction } from "react";
 import { numbersValue } from "../components/MobileKeyBoard/data";
 import { phoneNumbers } from "../Pages/NumbersPage/NumbersPage";
 import { makeFocus } from "./makeFocus";
+
 export function onNumberDown(
   event: KeyboardEvent<HTMLDivElement>,
   setPhoneNumber: Dispatch<SetStateAction<phoneNumbers>>,
@@ -19,6 +20,7 @@ export function onNumberDown(
       }
     });
   }
+
   if (key === "Backspace") {
     makeFocus(10);
     setIndex(10);

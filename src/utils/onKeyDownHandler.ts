@@ -4,7 +4,7 @@ import { borderConditionsHandler } from "./borderConditionsHandler";
 import { Dispatch, SetStateAction, KeyboardEvent } from "react";
 
 export function onKeyDownHandler(
-  event: KeyboardEvent<HTMLButtonElement>,
+  event: KeyboardEvent<HTMLButtonElement | HTMLInputElement>,
   setIndex: Dispatch<SetStateAction<number>>,
   testIndex?: number
 ) {

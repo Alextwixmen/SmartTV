@@ -9,10 +9,13 @@ interface IVideoPros {
 export function Video({ setShown }: IVideoPros) {
   const ref = useRef<HTMLVideoElement>(null);
 
-  const checkTheTime = (e) => {
-    if (Math.floor(e.target.currentTime) === 5) {
+  const checkTheTime = (event: Event): void => {
+    if (Math.floor((event.target as HTMLVideoElement).currentTime) === 5) {
       setShown(true);
-      e.target.removeEventListener("timeupdate", checkTheTime);
+      (event.target as HTMLVideoElement).removeEventListener(
+        "timeupdate",
+        checkTheTime
+      );
     }
   };
 
