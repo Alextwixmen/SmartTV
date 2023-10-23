@@ -14,11 +14,12 @@
   outline: 0;
 }
 .numberButton:focus {
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 .numberButton:hover {
   border-color: white;
 }
-.textBtn {
+.numberButton:nth-child(10) {
   flex-grow: 1;
 }

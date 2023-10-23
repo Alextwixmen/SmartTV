@@ -19,9 +19,8 @@ export function Video({ setShown }: IVideoPros) {
   useEffect(() => {
     ref.current?.addEventListener("timeupdate", checkTheTime);
   }, []);
-
   return (
-    <video ref={ref} autoPlay loop muted className={styles.video}>
+    <video ref={ref} autoPlay loop className={styles.video}>
       <source src={volvoVideo} type='video/mp4'></source>
     </video>
   );

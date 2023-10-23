@@ -1,0 +1,71 @@
+.mobileContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 380px;
+  background-color: #86d3f4;
+  padding: 40px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
+  color: black;
+  margin-bottom: 13px;
+}
+.consultationText {
+  font-weight: 400;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  line-height: 16px;
+}
+.buttonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 284px;
+  margin: 33px 0px;
+}
+.agreementContainer {
+  width: 284px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 13px;
+}
+.confirmButton {
+  width: 284px;
+  background-color: transparent;
+  border: 1px solid #4e4e4e;
+  padding: 12px 0px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4e4e4e;
+}
+.confirmButton:hover {
+  border-color: white;
+}
+.confirmButton:focus {
+  background-color: black;
+  color: white;
+}
+.numberFieldContainer {
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 13px;
+}
+.confirmButton:disabled:hover {
+  border-color: #4e4e4e;
+}

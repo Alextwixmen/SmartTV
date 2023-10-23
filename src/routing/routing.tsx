@@ -34,8 +34,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-const Routing = () => {
-  return <RouterProvider router={router} />;
-};
+export default () => <RouterProvider router={router} />;
 
-export default Routing;
+// настройка алиасов для вит (Мих непомнящий)

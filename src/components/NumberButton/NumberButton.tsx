@@ -1,56 +1,62 @@
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { onKeyDownHandler } from "../../utils/onKeyDownHandler";
+import { type keyBoardValue } from "../MobileKeyBoard/data";
 import styles from "./NumberButton.module.css";
-import { type btnValue } from "../TelephoneNumbers/TelephoneNumbers";
-import cn from "classnames";
-import { useEffect, useRef } from "react";
-
-interface INumberButton {
-  number?: btnValue;
+import { INumberEntryZoneProps } from "../NumberEntryZone/NumberEntryZone";
+import { makeFocus } from "../../utils/makeFocus";
+import { MouseEvent } from "react";
+interface INumberButtonProps
+  extends Omit<INumberEntryZoneProps, "phoneNumbers"> {
+  number?: keyBoardValue;
   index: number;
+  testIndex: number;
+  setIndex: Dispatch<SetStateAction<number>>;
 }
-let btnIndex = 1;
 
-export function NumberButton({ number, index }: INumberButton) {
+export function NumberButton({
+  number,
+  index,
+  testIndex,
+  setIndex,
+  setPhoneNumber,
+}: INumberButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (ref.current?.id === "1") {
       ref.current?.focus();
     }
-    ref.current?.addEventListener("keydown", (event) => {
-      const arrowType = event.code;
-      const focusBtn = document.activeElement.id;
-      console.log(document.activeElement, " id =>", focusBtn);
-      if (arrowType === "ArrowRight") {
-        btnIndex += 1;
-        document.getElementById(String(btnIndex))?.focus();
-        console.log(document.getElementById(String(btnIndex)));
-      }
-      if (arrowType === "ArrowLeft") {
-        btnIndex -= 1;
-        document.getElementById(String(btnIndex))?.focus();
-        console.log(document.getElementById(String(btnIndex)));
-      }
-      if (arrowType === "ArrowUp") {
-        btnIndex -= 3;
-        document.getElementById(String(btnIndex))?.focus();
-        console.log(document.getElementById(String(btnIndex)));
-      }
-      if (arrowType === "ArrowDown") {
-        btnIndex += 3;
-        document.getElementById(String(btnIndex))?.focus();
-        console.log(document.getElementById(String(btnIndex)));
-      }
-    });
   }, []);
+
+  const onClickHandler = (event: MouseEvent<HTMLButtonElement>) => {
+    const target = event.target as HTMLButtonElement;
+
+    setIndex(Number(target.id));
+    makeFocus(Number(target.id));
+    if (Number(target.id) === 10) {
+      setPhoneNumber((prev) => {
+        prev.pop();
+        return [...prev];
+      });
+    } else {
+      setPhoneNumber((prev) => {
+        if (prev.length === 10) {
+          return prev;
+        } else {
+          return [...prev, Number(target.id) === 11 ? 0 : Number(target.id)];
+        }
+      });
+    }
+  };
 
   return (
     <button
-      className={cn(styles.numberButton, {
-        [styles.textBtn]: typeof number === "string",
-      })}
-      tabIndex={1}
       ref={ref}
+      className={styles.numberButton}
+      tabIndex={1}
       id={String(index)}
+      onClick={onClickHandler}
+      onKeyDown={(event) => onKeyDownHandler(event, setIndex, testIndex)}
     >
       {number}
     </button>

@@ -1,13 +1,7 @@
 .react-tel-input {
   color: black;
 }
-.form-control {
-  color: black;
-  font-weight: 700 !important;
-  font-size: 32px !important;
-  background: transparent !important;
-  border: none !important;
-}
+
 #root {
   display: flex;
   align-items: center;

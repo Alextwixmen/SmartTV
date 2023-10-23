@@ -1,7 +1,8 @@
+import { createContext, useState } from "react";
 import "./App.css";
-import Routing from "./routing/routing";
+import Routes from "./routing/routing";
 function App() {
-  return <Routing />;
+  return <Routes />;
 }
 
 export default App;
