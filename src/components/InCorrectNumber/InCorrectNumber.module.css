@@ -1,0 +1,7 @@
+.incorrectNumber {
+  font-weight: 500;
+  font-size: 16px;
+  color: red;
+  line-height: 18.75px;
+  padding: 12px 12px;
+}

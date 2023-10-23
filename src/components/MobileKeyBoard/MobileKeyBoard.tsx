@@ -7,7 +7,8 @@ import { onKeyDownHandler } from "../../utils/onKeyDownHandler";
 import { makeFocus } from "../../utils/makeFocus";
 import { NumberField } from "../NumberField/NumberField";
 import styles from "./MobileKeyBoard.module.css";
-
+import { ConFirmButton } from "../ConfirmButton/ConfirmButton";
+import { InCorrectNumber } from "../InCorrectNumber/InCorrectNumber";
 export interface IMobileKeyBoardProps extends INumberEntryZoneProps {
   testIndex: number;
   setIndex: Dispatch<SetStateAction<number>>;
@@ -21,15 +22,14 @@ export function MobileKeyBoard({
 }: IMobileKeyBoardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isChecked, setCheked] = useState(false);
-
+  const [isValidNumber, setIsValidNumber] = useState<boolean | null>(null);
   useEffect(() => {
     if (ref.current !== null) {
       makeFocus(testIndex);
     }
   }, []);
-
   return (
-    <div className={styles.mobileContainer} onKeyDown={(event) => {}}>
+    <div className={styles.mobileContainer}>
       <h1 className={styles.title}>Введите ваш номер мобильного телефона</h1>
       <div className={styles.numberFieldContainer}>
         <NumberField phoneNumbers={phoneNumbers} />
@@ -50,29 +50,27 @@ export function MobileKeyBoard({
         ))}
       </div>
       <div className={styles.agreementContainer}>
-        <Agreement
-          setIndex={setIndex}
-          testIndex={testIndex}
-          isChecked={isChecked}
-          setCheked={setCheked}
-        />
+        {isValidNumber === false ? (
+          <InCorrectNumber />
+        ) : (
+          <Agreement
+            setIndex={setIndex}
+            testIndex={testIndex}
+            isChecked={isChecked}
+            setCheked={setCheked}
+          />
+        )}
       </div>
-      <button
-        className={styles.confirmButton}
-        onClick={() => console.log("click")}
-        id='13'
-        onKeyDown={(event) => onKeyDownHandler(event, setIndex, testIndex)}
-        disabled={phoneNumbers.length === 10 && isChecked ? false : true}
-      >
-        Подтвердить номер
-      </button>
+      <ConFirmButton
+        phoneNumbers={phoneNumbers}
+        setIndex={setIndex}
+        setPhoneNumber={setPhoneNumber}
+        testIndex={testIndex}
+        isChecked={isChecked}
+        onKeyDownHandler={onKeyDownHandler}
+        isValidNumber={isValidNumber}
+        setIsValidNumber={setIsValidNumber}
+      />
     </div>
   );
 }
-
-// http://apilayer.net/api/validate
-
-//     ? access_key = b8effc8d99b05405e9792cfed1f002c4
-//     & number = 14158586273
-//     & country_code = RU
-//     & format = 1
