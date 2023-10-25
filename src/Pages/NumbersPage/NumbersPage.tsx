@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./NumbersPage.module.css";
 import { NumberEntryZone } from "../../components/NumberEntryZone/NumberEntryZone";
 import { useNavigate } from "react-router";
-import { useLocation } from "react-router-dom";
 export type phoneNumbers = number[] | [];
 
 export function NumbersPage() {
