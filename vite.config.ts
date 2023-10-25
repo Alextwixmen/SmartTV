@@ -21,7 +21,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [react()],
     base: "/SmartTV/",
     define: {
-      VITE_ACCESSTOKEN: JSON.stringify(env.APP_ENV),
+      "process.env.VITE_ACCESSTOKEN": JSON.stringify(env.APP_ENV),
     },
   };
 });
