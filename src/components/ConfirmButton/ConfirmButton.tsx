@@ -22,7 +22,7 @@ export function ConFirmButton({
   const number = `8${phoneNumbers.join("")}`;
   const handleClick = async () => {
     const response = await fetch(
-      `https://apilayer.net/api/validate?access_key=${
+      `http://apilayer.net/api/validate?access_key=${
         import.meta.env.VITE_ACCESSTOKEN
       }&number=${number}&country_code=${COUNTRY_CODE}&format=${FORMAT}`
     );
