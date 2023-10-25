@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: "/SmartTV/",
   define: {
     "process.env.VITE_ACCESSTOKEN": JSON.stringify(
       process.env.VITE_ACCESSTOKEN
     ),
   },
-  base: "/SmartTV/",
 });
