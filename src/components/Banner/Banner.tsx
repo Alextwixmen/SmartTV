@@ -10,8 +10,10 @@ export function Banner({ isBannerShown }: IBannerProps) {
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    ref.current?.focus();
-  }, []);
+    if (isBannerShown) {
+      ref.current?.focus();
+    }
+  }, [isBannerShown]);
 
   return isBannerShown ? (
     <div className={`${styles.wrapper} ${styles.show}`}>
