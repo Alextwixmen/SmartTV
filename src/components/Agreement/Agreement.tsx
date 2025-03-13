@@ -29,6 +29,7 @@ export function Agreement({
               onKeyDownHandler(event, setIndex, testIndex);
               if (event.code === "Enter") {
                 setCheked((prev) => !prev);
+                console.log("test");
               }
             }}
             id="12"
