@@ -19,8 +19,9 @@ export function Agreement({
     <>
       <div className={styles.checkboxWrapper}>
         <label className={styles.label}>
+          <input value={"1"} />
           <input
-            type='checkbox'
+            type="checkbox"
             checked={isChecked}
             onChange={() => setCheked((prev) => !prev)}
             className={isChecked ? styles.checked : ""}
@@ -30,7 +31,7 @@ export function Agreement({
                 setCheked((prev) => !prev);
               }
             }}
-            id='12'
+            id="12"
           />
           <span className={styles.agreementText}>
             Согласие на обработку персональных данных
