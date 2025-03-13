@@ -30,6 +30,7 @@ export function Agreement({
               if (event.code === "Enter") {
                 setCheked((prev) => !prev);
                 console.log("test");
+                console.log("test 2");
               }
             }}
             id="12"
