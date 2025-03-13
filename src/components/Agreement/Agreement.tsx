@@ -31,6 +31,7 @@ export function Agreement({
                 setCheked((prev) => !prev);
                 console.log("test");
                 console.log("test 2");
+                console.log("test3");
               }
             }}
             id="12"
